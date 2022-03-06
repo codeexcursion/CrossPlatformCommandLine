@@ -10,6 +10,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Default to filename only in results.
 * Detect and skip binary files for replace?
 * Parse parameters
+* Parameters begin with one hyphen
 * Print help instructions
 * File include parameter
 * File exclude parameter
