@@ -6,7 +6,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Find and replace in files
 * Seperate command line options for regular expression find and replace.
 * Should be able to use regular expressions across multiple lines.
-* Should it recurse by default?
+* Should NOT recurse by default.
 * Parse parameters
 * Print help instructions
 * File include parameter
