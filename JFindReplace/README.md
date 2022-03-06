@@ -9,5 +9,8 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Should it recurse by default?
 * Parse parameters
 * Print help instructions
+* File include parameter
+* File exclude parameter
+* Detect and skip binary files for replace?
 
 
