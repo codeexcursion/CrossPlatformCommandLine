@@ -20,6 +20,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Regex Replace flag will be -r and -replace followed by a String representing a regular expression replacement pattern.
 * Recursion flag will be -recursion.
 * Display content flag will be -c and -content.
+* Help flag will be -h or -help
 
 
 
