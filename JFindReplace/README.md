@@ -11,6 +11,9 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Print help instructions
 * File include parameter
 * File exclude parameter
+* Regex Find parameter
+* Regex Replace parameter
+* Recursion parameter
 * Detect and skip binary files for replace?
 
 
