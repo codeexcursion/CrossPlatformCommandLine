@@ -14,6 +14,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Flags begin with one hyphen always.
 * Flag parameters
 * Print help instructions
+* Directory flag will be -d and -directory followed by a String representing a directory.  This flag will be optional.
 * File include flag will be -i and -include followed by a String representing a filename or filename pattern.
 * File exclude flag will be -e and -exclude followed by a String representing a filename or filename pattern.
 * Regex Find flag will be -f and -find followed by a String representing a regular expression pattern.
