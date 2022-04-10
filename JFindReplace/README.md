@@ -14,6 +14,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Flags begin with one hyphen always.
 * Flag parameters
 * Print help instructions
+* Suppressing ANSI color codes will be -noansi.
 * Directory flag will be -d and -directory followed by a String representing a directory.  This flag will be optional.
 * Suppress results flag will be -s and -suppress which will prevent any results being outputted.  This will not affect error output.
 * Max file size flage will be -m and -maximum which will set the max file size allowable for processing.  Default will be 65k.
