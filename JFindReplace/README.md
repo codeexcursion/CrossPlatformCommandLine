@@ -22,7 +22,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * File exclude flag will be -e and -exclude followed by a String representing a filename or filename pattern.
 * Regex Find flag will be -f and -find followed by a String representing a regular expression pattern.
 * Regex Replace flag will be -r and -replace followed by a String representing a regular expression replacement pattern.
-* Recursion flag will be -recursion.
+* Recurse flag will be -recurse.
 * Display content flag will be -c and -content.
 * Help flag will be -h or -help
 
