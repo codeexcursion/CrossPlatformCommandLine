@@ -4,6 +4,7 @@
  */
 package com.codeexcursion;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class Flag {
     
     public Flag(String flagText){
         this.type = FlagTypes.from(flagText);
-        
+        this.options = new ArrayList<>();
     }
     
     public void addOption(String text){
@@ -30,7 +31,7 @@ public class Flag {
         return type;
     }
 
-    public List<String> getText() {
+    public List<String> getOptions() {
         return options;
     }
     
