@@ -21,13 +21,14 @@ public class ParseParameters {
     
     
     public ParseParameters(String[] parameters){
+        if(parameters == null || parameters.length <1){
+            isGood = false;
+            return;
+        }  
        this.flags = new ArrayList<Flag>();
        this.errors = new ArrayList<String>();
-        if(parameters == null || parameters.length <1){
-            HelpText.printHelp();    
-            isGood = false;
-        }        
-        parseParams(parameters);
+           
+       parseParams(parameters);
     }
     
     public boolean isGood(){
@@ -38,39 +39,65 @@ public class ParseParameters {
         return flags;
     }
     
+    public List<String> getErrors(){
+        return errors;
+    }
+    
+    private List<String> getParamList(String[] params){
+        List<String> paramList = new ArrayList<>();
+        for(String param : params){
+            if(param != null){
+                paramList.add(param);
+            }
+        }
+        return paramList;
+    }
+    
     private void parseParams(String[] parameters){
-      List<String> paramList = Arrays.asList(parameters);
-      Optional<String> firstParam = paramList.stream().findFirst();
-      firstParam.ifPresent(this::handleFirstParam);
+      List<String> paramList = getParamList(parameters);
+      Flag lastFlag = null;
+      if(!paramList.isEmpty()){
+        lastFlag = handleFirstParam(paramList.remove(0));
+      }else{
+          isGood = false;
+      }
       
       if(!isGood){
           return;
       }
-      
-      Flag lastFlag = null;
+           
       for(String param : paramList){
           if(param != null){
               if(param.startsWith("-")){
                   lastFlag = new Flag(param);
                   flags.add(lastFlag);
-              }else{
-                  if(lastFlag != null){
+              }else{                 
                     lastFlag.addOption(param);
-                  }
               }
           }
       }
       
-      
+      validateFlags();
       
     }
     
-    private void handleFirstParam(String firstParam){
+    private Flag handleFirstParam(String firstParam){
         Flag firstFlag = new Flag(firstParam);
+        flags.add(firstFlag);
         if(firstFlag.getType() == FlagTypes.ERROR){
             isGood = false;
-            errors.add("First parameter must be a flag.");
-        }        
+            errors.add("First parameter '" + firstParam + "' must be a flag.");
+        }       
+        return firstFlag;
+    }
+    
+    private void validateFlags(){
+        for(Flag flag : flags){
+            if(!flag.getType().isSimple() && flag.getOptions().size() < 1){
+                isGood = false;
+                errors.add("Flag '" + flag.getType().name() + "' requires at least one option.");
+            }
+        }
     }
     
 }
