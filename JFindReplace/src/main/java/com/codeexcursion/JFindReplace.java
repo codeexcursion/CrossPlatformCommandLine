@@ -6,4 +6,9 @@ package com.codeexcursion;
  */
 public class JFindReplace {
     
+    public static void main(String[] args){
+        Controller controller = new Controller();
+        controller.run(args);
+    }
+    
 }

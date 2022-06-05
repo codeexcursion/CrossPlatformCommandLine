@@ -10,4 +10,21 @@ package com.codeexcursion;
  */
 public class Controller {
     
+    public void run(String[] args){
+        ParseParameters parseParameters = new ParseParameters(args);
+        
+        if(!parseParameters.isGood()){
+            HelpText.printShortHelp();
+            parseParameters.getErrors().forEach(System.out::println);
+            return;
+        }
+        
+        if(parseParameters.getFlags().stream()
+                .anyMatch(flag -> FlagTypes.HELP.equals(flag.getType()))){
+            HelpText.printHelp();
+            return;
+        }
+        
+        
+    }
 }
