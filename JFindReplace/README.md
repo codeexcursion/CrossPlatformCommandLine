@@ -8,7 +8,7 @@ A tool that will recursively search files in a directory structure.  Replacing v
 * Should be able to use regular expressions across multiple lines.
 * Should NOT recurse by default.
 * Default to filename only in results.
-* Detect and skip binary files for replace?
+* There will be a list of default text file extensions that are automatically included.  Only extensions in the default list and those specified by a flag will be included in the execution of the program.
 * Application will accept command line parameters.
 * These parameters will consist of space flags and values.
 * Flags begin with one hyphen always.
