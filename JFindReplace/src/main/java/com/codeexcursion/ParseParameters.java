@@ -78,7 +78,7 @@ public class ParseParameters {
       }
       
       validateFlags();
-      
+      mustHaveFind();
     }
     
     private Flag handleFirstParam(String firstParam){
@@ -97,6 +97,13 @@ public class ParseParameters {
                 isGood = false;
                 errors.add("Flag '" + flag.getType().name() + "' requires at least one option.");
             }
+        }
+    }
+    
+    private void mustHaveFind(){
+        if(!flags.stream().anyMatch(flag -> FlagTypes.FIND.equals(flag.getType()))){
+            isGood = false;
+            errors.add("Find flag must be specified.");            
         }
     }
     

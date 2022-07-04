@@ -4,16 +4,22 @@
  */
 package com.codeexcursion;
 
+import java.io.IOException;
+import java.nio.file.FileVisitOption;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 
-public class Excecution {
+public class Execution {
     private final List<Flag> flagList;
-    private Path directory;
+    private Path directory = Paths.get(".");
     private int maxFileSize = 65536;
     private int maxDepth = 1;
     private List<String> includes = DefaultFileExtensions.getFileExtensions();
@@ -22,9 +28,10 @@ public class Excecution {
     private boolean content = false;
     private boolean suppress = false;
 
-    public Excecution(List<Flag> flagList) {
+    public Execution(List<Flag> flagList) {
         this.flagList = Optional.ofNullable(flagList).orElseThrow(IllegalArgumentException::new);
         configure();
+        run();
     }
     
     private void configure(){
@@ -79,5 +86,21 @@ public class Excecution {
         this.suppress = true;
     }
     
+    private void run(){
+        Stream<Path> filteredStream = null;
+        try{
+            FileStreamFilter fileStreamFilter = new FileStreamFilter(
+                    Files.walk(directory, maxDepth, FileVisitOption.FOLLOW_LINKS),
+                    maxFileSize,
+                    includes,
+                    excludes);
+            filteredStream = fileStreamFilter.getFilteredStream();
+            
+              
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }
+    }
+  
     
 }

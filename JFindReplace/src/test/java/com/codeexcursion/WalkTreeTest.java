@@ -20,7 +20,7 @@ public class WalkTreeTest {
     @Test
     public void testWalk() throws IOException{
         Path homeFolder = Paths.get("C:\\maven");
-        Files.walk(homeFolder).forEach(System.out::println);
+        Files.walk(homeFolder, 1).forEach(System.out::println);
       
              
     }

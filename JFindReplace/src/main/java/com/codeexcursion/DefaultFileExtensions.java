@@ -14,18 +14,20 @@ import java.util.List;
 public class DefaultFileExtensions {
     private static List<String> fileExtensions = new ArrayList<>();
     static{
-        fileExtensions.add("*.txt");
-        fileExtensions.add("*.xml");
-        fileExtensions.add("*.conf");
-        fileExtensions.add("*.java");
-        fileExtensions.add("*.xsd");
-        fileExtensions.add("*.wsdl");
-        fileExtensions.add("*.c");
-        fileExtensions.add("*.csv");
-        fileExtensions.add("*.bat");
-        fileExtensions.add("*.ps1");
-        fileExtensions.add("*.sh");
-        fileExtensions.add("*.groovy");        
+        fileExtensions.add(".txt");
+        fileExtensions.add(".xml");
+        fileExtensions.add(".conf");
+        fileExtensions.add(".java");
+        fileExtensions.add(".xsd");
+        fileExtensions.add(".wsdl");
+        fileExtensions.add(".c");
+        fileExtensions.add(".csv");
+        fileExtensions.add(".bat");
+        fileExtensions.add(".ps1");
+        fileExtensions.add(".sh");
+        fileExtensions.add(".groovy");
+        fileExtensions.add(".md");
+        fileExtensions.add(".adoc");
     }
     
     public static List<String> getFileExtensions(){
