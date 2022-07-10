@@ -30,6 +30,7 @@ public class Execution {
 
     public Execution(List<Flag> flagList) {
         this.flagList = Optional.ofNullable(flagList).orElseThrow(IllegalArgumentException::new);
+        if(flagList.size() < 1){throw new IllegalArgumentException("Flaglist was empty.");}
         configure();
         run();
     }
@@ -95,7 +96,8 @@ public class Execution {
                     includes,
                     excludes);
             filteredStream = fileStreamFilter.getFilteredStream();
-            
+            filteredStream.map(path -> new FileFindReplace(path, find, replace).getMatches())
+                    .forEach(Matches::print);
               
         }catch(IOException ioe){
             ioe.printStackTrace();

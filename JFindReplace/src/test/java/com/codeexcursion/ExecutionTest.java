@@ -22,8 +22,18 @@ public class ExecutionTest {
         
     }
     
-    @Test
+    @Test(expected= IllegalArgumentException.class)
     public void testFileFilterDefaults(){
         new Execution(flagList);
+    }
+    
+    @Test
+    public void testFind(){
+        Flag find = new Flag("-f");
+        find.addOption("dependency");
+        flagList.add(find);
+        new Execution(flagList);
+        
+        
     }
 }
